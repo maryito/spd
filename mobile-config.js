@@ -41,6 +41,6 @@ App.setPreference('Orientation', 'all', 'ios');
 // Universal Links is shown as an example here.
 App.appendToConfig(`
   <universal-links>
-    <host name="138.197.127.251:80" />
+    <host name=Meteor.settings.acceso.server/>
   </universal-links>
 `);

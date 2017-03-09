@@ -16,9 +16,9 @@
       		<!-- ocultamos el link si el usuario no ha iniciado sesion -->
       		{{#if currentUser }}
 
-            <li> <a href="{{pathFor 'home'}}">Inicio</a></li>
+            <li> <a href="{{pathFor 'home'}}">INICIO</a></li>
           {{#if isInRole 'jefe, supervisor'}}
-            <li> <a href="{{pathFor 'administrador'}}">Administrador</a> </li>
+            <li> <a href="{{pathFor 'administrador'}}">GRÁFICOS</a> </li>
           	{{/if}}
 
       		{{/if}}
