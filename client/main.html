@@ -1,0 +1,56 @@
+<template name="layout">
+  <div class="container">
+    {{> nav}}
+    {{> sAlert}}
+    <div class="main">
+      {{> yield}}
+    </div>
+  </div>
+
+</template>
+
+<template name="Home">
+  <div class="rows">
+
+    {{#if currentUser}}
+
+      {{#if isInRole 'jefe, supervisor'}}
+      <h2>Bienvenido Administrador de proyecto</h2>
+      <!-- {{> administrador}} -->
+          {{> tareas}}
+      {{else}}
+        {{#if isInRole 'normal'}}
+        <div>
+            <h2>Listado de tareas por realizar</h2>
+        </div>
+        <div class="posts">
+          {{> tareas}}
+        </div>
+        {{else}}
+        <h1>BIENVENIDO AL PROYECTO SPD&D</h1>
+        <br>
+        {{/if}}
+      {{/if}}
+
+
+
+
+    {{else}}
+    <h1 class="h1-responsive">BIENVENIDO AL PROYECTO SPD&D</h1>
+    <br>
+    <img src="monitoreo.png" alt="..." class="img-thumbnail">    <br>
+    <!-- <h2>Por favor inicia sesion</h2> -->
+    {{/if}}
+
+    <!-- pruebas -->
+    <!-- <li>  {{> loginButtons}} </li>
+    <div class="posts">
+      {{> tareas}}
+    </div> -->
+
+      <div class="rows col-md-12 col-xs-12 col-sm-12">
+        <h3>Desarrollado por Jenifer Giraldo.</h3>
+      </div>
+  </div>
+
+</template>

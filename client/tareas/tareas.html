@@ -1,0 +1,82 @@
+<template name="tareas">
+  <div class="posts rows">
+
+    {{#each listaTareas}}
+
+    {{#if item}}
+    <div class="post">
+      <div class="post-content">
+        <h3>{{ nombre }}</h3>
+
+          {{#if isInRole 'jefe, supervisor'}}
+          <h4>
+
+            <span class="glyphicon glyphicon-  glyphicon-tags" aria-hidden="true"></span>
+            <span class="badge">{{ item }}</span>
+
+            <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+            <span class="badge">{{ dependencia }}</span>
+
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <span class="badge">{{personal}}</span>
+
+              <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+              <span class="badge">{{porcentaje}}% establecido y el avance {{avance}}% </span>
+
+
+              <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+              <span class="badge"> {{cantidad}} {{unidad}}</span>
+
+              <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
+              <span class="badge">{{horas}}</span>
+
+
+
+          </h4>
+          {{/if}}
+      </div>
+      <button class="discuss btn btn-warning "> Reportar </button>
+      <!-- <a href="{{pathFor 'reportes'}}" class="discuss btn btn-warning">Reportar</a> -->
+    </div>
+
+    {{else}}
+    <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-warning">
+      {{ nombre }}
+
+      {{#if isInRole 'jefe, supervisor'}}
+      <span class="badge">{{porcentaje}}% </span>
+      {{/if}}
+    </a>
+
+
+  </div>
+    {{/if}}
+
+
+      <!-- {{> tareaItem}} -->
+
+    {{/each}}
+
+    <!-- {{#each listaTareas}}
+      {{> tareaItem}}
+    {{/each}} -->
+  </div>
+</template>
+
+
+<template name="tareaItem">
+  <div class="post">
+    <div class="post-content">
+      <h3><a href="{{url}}">{{ tarea }}</a></h3>
+        <p>
+            Porcentaje de avance {{ porcentaje }}%
+            <a href="{{pathFor 'reportes'}}"> Tarea {{ Item }}</a>
+
+        </p>
+    </div>
+    <a href="{{pathFor 'reportes'}}" class="discuss btn btn-warning">Reportar</a>
+    <!-- <a class="discuss btn btn-default">Reportar</a> -->
+    <!-- <button class="discuss btn btn-warning"> Reportar</button> -->
+  </div>
+</template>

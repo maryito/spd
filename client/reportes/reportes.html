@@ -1,0 +1,41 @@
+<template name="reportes">
+  <div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">REPORTE</h3>
+  </div>
+  <div class="panel-body">
+    <h2>Actividad: {{ nombre }}</h2>
+  </div>
+</div>
+
+{{#unless mostraPre}}
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h3 class="panel-title">¿La actividade se realizo con exito?</h3>
+    </div>
+    <div class="panel-body">
+      <button id="btnSi" class="btn btn-success btnSi">Si</button>
+      <button id="btnNo" class="btn btn-danger btnNo">No</button>
+    </div>
+  </div>
+  {{/unless}}
+
+  <div class="post">
+    <div class="post-content">
+      {{#if situacion}}
+      <h2>Formulario de reporte.</h2>
+      {{> quickForm schema=Schemas.situacion id="reportesForm" type="normal" doc=value
+      buttonContent="Enviar Reporte"
+      }}
+      {{/if}}
+
+      {{#if reportar}}
+      <h2>Formulario de reporte.</h2>
+      {{> quickForm schema=Schemas.reportes id="preguntasForm" type="normal" doc=value
+      buttonContent="Enviar Reporte"
+      }}
+      {{/if}}
+    </div>
+  </div>
+
+</template>
